@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizza Ordering System</title>
+    <style>
+        body {
+            margin: 0;
+            
+        }
+        /*
+        .banner {
+            height: 80vh;
+            background: black;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        */
+
+        /* .banner-content {
+            position: absolute;
+            transform: translateY(-50%) translateX(-50%); 
+            transform: translate(-50%, -50%);
+            https://stackoverflow.com/questions/40530101/why-is-translatey-50-needed-to-center-an-element-which-is-at-top-50 
+            left: 50%;
+            top: 50%;
+        }
+         */
+         /* 居中还是要想到flex or grid */
+        .banner {
+            height: 80vh;
+            background: black;
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;    
+            background-image: url('./assets/banner-background.png');
+            background-size: cover;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;      
+        }
+
+        .banner-content {
+            width: 600px;
+
+        }
+
+        .banner-content > h1 {
+            margin-top: 0;
+            margin-bottom: 16px;
+            color: white;
+        }
+        .banner-content > h2 {
+            margin-top: 16px;
+            margin-bottom: 0;
+            color: gold;
+            font-size: 32px;
+        }
+        .banner-content > button {
+            margin-top: 16px;
+            margin-bottom: 0;
+            border: 1px solid gold;
+            outline: 0;
+            background: transparent;
+            color: gold;
+            font-size: 16px;
+            padding: 12px 18px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="banner-content">
+
+            <h1>Get it while it's hot</h1>
+            <h2>We create custom, personal pizzas with quality ingredients in only five minutes.</h2>
+
+            <button>ORDER ONLINE</button>
+        </div>
+
+    </div>
+</body>
+</html>
