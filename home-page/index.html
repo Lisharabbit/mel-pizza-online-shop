@@ -3,10 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Pizza Ordering System</title>
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Charmonman&display=swap" rel="stylesheet">
+
+
     <style>
+        html {
+            font-size: 16px;
+        }
+
         body {
             margin: 0;
-            
+        }
+        
+        .container {
+            width: 80rem;
+            margin: 0 auto;
+        }
+
+        
+
+        .primary-font {
+            font-family: 'Abril Fatface', cursive;
+            font-weight: 600;
+            color: gold;
+        }
+        .hot-font {
+            font-family: 'Charmonman', cursive;
         }
         /*
         .banner {
@@ -55,7 +78,6 @@
         .banner-content > h2 {
             margin-top: 16px;
             margin-bottom: 0;
-            color: gold;
             font-size: 32px;
         }
         .banner-content > button {
@@ -68,6 +90,72 @@
             font-size: 16px;
             padding: 12px 18px;
         }
+        .features {
+            background: url('./assets/background.jpg');
+            padding: 5rem 0;
+            color: white;
+            display: block;
+            text-align: center;
+
+        }
+        .features  h2 {
+            font-size: 2.5rem;
+            /* rem = 2 x html's font-size */
+        }
+        .feature-items {
+            display: flex;
+            justify-content: space-between;
+            text-align: left;
+        }
+        .feature-items > div:not(:last-child) {
+            margin-right: 1rem;
+        }
+        .feature-items h3 {
+            font-size: 2rem;
+        }
+
+        .news {
+            background: url('./assets/background.jpg');
+            padding: 5rem 0;
+            color: white;
+            display: block;
+            text-align: center;
+
+        }
+        .news h2 {
+            font-size: 2.5rem;
+        }
+        .news-items{
+            display: flex;
+            justify-content: space-between;
+            text-align: left;
+        }
+        .news-items > div:not(:last-child){
+            margin-right: 4rem;
+        }
+
+        .news-items button {
+            outline: none;
+            border: 0;
+            background-color: #fdbc2c;
+            padding: 1rem 2rem;
+        }
+        .news-items  h4 {
+            color: red;
+            font-size: 1rem;
+
+        }
+        .news-items > div {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        /* button 居底 */
+
+        .news-items > div > p {
+            flex: 1;
+            /* 如果有多余的高度，那么剩下的高度都是p的 */
+        }
 
     </style>
 </head>
@@ -75,12 +163,78 @@
     <div class="banner">
         <div class="banner-content">
 
-            <h1>Get it while it's hot</h1>
-            <h2>We create custom, personal pizzas with quality ingredients in only five minutes.</h2>
-
+            <h1 class="hot-font">Get it while it's hot</h1>
+            <h2 class="primary-font">We create custom, personal pizzas with quality ingredients in only five minutes.</h2>
             <button>ORDER ONLINE</button>
         </div>
-
+    </div>
+    <div class="features">
+        <div class="container">
+            <h2 class="primary-font">We are pizza makers, and our mission is to make cool pizza which feeds all your sense.</h2>
+            <p>We prefer to rely on instinct and feed, measuring by hand, not by the gram. this is the authentic way to make pizza. sure it;s a little unrefined, but we're pround of that. </p>
+            <p>It's pizza like this which feeds your sense of sharing adding flavour to those occasions when you get toghether with friends and family.</p>
+            <p>And really. itsn't that what it is all about? </p>
+            <div class="feature-items">
+                <div>
+                    <h3 class="primary-font">We're Careful</h3>
+                    <p>The crust is stored in a separate container, on a separate shelf in our fridge. The cheese,
+                            marinara sauce and pepperoni are stored in a designated kit, and every pizza is freshly baked on
+                            designated parchment paper in our ovens.</p>
+                </div>
+                <div>
+                    <h3 class="primary-font">We're Certified</h3>
+                    <p>Our cheese-only and cheese-and-pepperoni gluten-free pizzas are prepared using the procedures
+                            certified by the Gluten Intolerance Group (GIG), and we take specific caution when making these
+                            pizzas.</p>
+                </div>
+                <div>
+                    <h3 class="primary-font">We're Creative</h3>
+                    <p>For those simply looking to reduce gluten in their diets, we offer a Create Your Own pizza
+                            option. The cheese, pepperoni and marinara come from our gluten-free kit, but all additional
+                            toppings are stored at our standard make table.</p>
+                            <!-- 要解决三个元素之间的间距问题 -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="news">
+        <div class="container">
+            <h2 class="primary-font">Latest News & Recipes</h2>
+            <div class="news-items">
+                <div>
+                    <div> picure</div>
+                    <h4>January 22, 2015</h4>
+                    <h3 class="primary-font">Perfect Pizza Using Baking Steel Broiler Method</h3>
+                    <p>We prefer to rely on instinct and feel, measuring by hand, not by the gram. This is the authentic
+                            way to make pizza. Sure it's a little unrefined, but we're proud of that. We prefer to rely on
+                            instinct and feel, measuring by hand, not by the gram. This is the authentic way to make pizza.
+                            Sure it's a little unrefined, but we're proud of that.</p>
+                    <button>READ MORE</button>
+                </div>
+                <div>
+                    <div> picure</div>
+                    <h4>December 10, 2014</h4>
+                    <h3 class="primary-font">Brussels Sprouts, Pepper and Bacon Hot Pizza Recipes</h3>
+                    <p>
+                        We prefer to rely on instinct and feel, measuring by hand, not by the gram. This is the
+                        authentic way to make pizza. Sure it's a little unrefined, but we're proud of that. We prefer to
+                        rely on instinct and feel, measuring by hand, not by the gram. This is the authentic way to make
+                        pizza. Sure it's a little unrefined, but we're proud of that</p>
+                    <button>READ MORE</button>
+                </div>
+                <div>
+                    <div>pi</div>
+                    <h4>December 10, 2014</h4>
+                    <h3 class="primary-font">Brussels Sprouts, Pepper and Bacon Hot Pizza Recipes</h3>
+                    <p>
+                        We prefer to rely on instinct and feel, measuring by hand, not by the gram. This is the
+                        authentic way to make pizza. Sure it's a little unrefined, but we're proud of that. We prefer to
+                        rely on instinct and feel, measuring by hand, not by the gram. This is the authentic way to make
+                        pizza. Sure it's a little unrefined, but we're proud of that</p>
+                    <button>READ MORE</button>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
