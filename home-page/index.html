@@ -103,13 +103,12 @@
             /* rem = 2 x html's font-size */
         }
         .feature-items {
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-column-gap: 3rem;
             text-align: left;
         }
-        .feature-items > div:not(:last-child) {
-            margin-right: 1rem;
-        }
+ 
         .feature-items h3 {
             font-size: 2rem;
         }
@@ -118,44 +117,42 @@
             background: url('./assets/background.jpg');
             padding: 5rem 0;
             color: white;
-            display: block;
-            text-align: center;
-
         }
         .news h2 {
             font-size: 2.5rem;
+            text-align: center; 
+            margin: 0;
+        }
+        .news h3 {
+            font-size: 2rem;
+        }
+        .news h4 {
+            color: red;
+            font-size: 1.5rem;
         }
         .news-items{
-            display: flex;
-            justify-content: space-between;
-            text-align: left;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-column-gap: 3rem;
         }
-        .news-items > div:not(:last-child){
-            margin-right: 4rem;
-        }
-
         .news-items button {
             outline: none;
             border: 0;
             background-color: #fdbc2c;
             padding: 1rem 2rem;
         }
-        .news-items  h4 {
-            color: red;
-            font-size: 1rem;
-
-        }
         .news-items > div {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            display: grid;
+            grid-template-rows: auto auto 10rem 1fr auto;
+            grid-row-gap: 3rem;
         }
-        /* button 居底 */
-
+        .news-items > div > h3,
+        .news-items > div > h4,
         .news-items > div > p {
-            flex: 1;
-            /* 如果有多余的高度，那么剩下的高度都是p的 */
+            margin: 0;
+
         }
+
 
     </style>
 </head>
