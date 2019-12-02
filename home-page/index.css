@@ -1,0 +1,213 @@
+html {
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+}
+
+.container {
+    width: 80rem;
+    margin: 0 auto;
+}
+
+
+
+.primary-font {
+    font-family: 'Abril Fatface', cursive;
+    font-weight: 600;
+    color: gold;
+}
+.hot-font {
+    font-family: 'Charmonman', cursive;
+}
+/*
+.banner {
+    height: 80vh;
+    background: black;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+*/
+
+/* .banner-content {
+    position: absolute;
+    transform: translateY(-50%) translateX(-50%); 
+    transform: translate(-50%, -50%);
+    https://stackoverflow.com/questions/40530101/why-is-translatey-50-needed-to-center-an-element-which-is-at-top-50 
+    left: 50%;
+    top: 50%;
+}
+ */
+ /* 居中还是要想到flex or grid */
+.banner {
+    height: 80vh;
+    background: black;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    background-image: url('./assets/banner-background.png');
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;      
+}
+
+.banner-content {
+    width: 600px;
+
+}
+
+.banner-content > h1 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    color: white;
+}
+.banner-content > h2 {
+    margin-top: 16px;
+    margin-bottom: 0;
+    font-size: 32px;
+}
+.banner-content > button {
+    margin-top: 16px;
+    margin-bottom: 0;
+    border: 1px solid gold;
+    outline: 0;
+    background: transparent;
+    color: gold;
+    font-size: 16px;
+    padding: 12px 18px;
+}
+.features {
+    background: url('./assets/background.jpg');
+    padding: 5rem 0;
+    color: white;
+    display: block;
+    text-align: center;
+
+}
+.features  h2 {
+    font-size: 2.5rem;
+    /* rem = 2 x html's font-size */
+}
+.feature-items {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-column-gap: 3rem;
+    text-align: left;
+}
+
+.feature-items h3 {
+    font-size: 2rem;
+}
+
+.news {
+    background: url('./assets/background.jpg');
+    padding: 5rem 0;
+    color: white;
+}
+.news h2 {
+    font-size: 2.5rem;
+    text-align: center; 
+    margin: 0;
+}
+.news h3 {
+    font-size: 2rem;
+}
+.news h4 {
+    color: red;
+    font-size: 1.5rem;
+}
+.news-items{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 3rem;
+}
+.news-items button {
+    outline: none;
+    border: 0;
+    background-color: #fdbc2c;
+    padding: 1rem 2rem;
+}
+.news-items > div {
+    display: grid;
+    grid-template-rows: auto auto 10rem 1fr auto;
+    grid-row-gap: 3rem;
+}
+.news-items > div > h3,
+.news-items > div > h4,
+.news-items > div > p {
+    margin: 0;
+}
+
+.ingredients {
+    background: black;
+    padding: 10rem 0;
+    color: white;
+    font-family: 'Charmonman', cursive;
+    font-size: 1.5rem;
+}
+.ingredients > .container{
+    display: grid;
+    grid-template-columns: repeat(6,150px);
+    grid-template-rows: 150px;
+    justify-content: space-between;
+}
+.ingredients > .container > div {
+    border: 2px solid orangered;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.black-tile {
+    background: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.banner-image { 
+    /* background-image: url('./assets/orangeBackground.png'); */
+    background: url('./assets/orangeBackground.png');
+
+    color: white;
+    z-index: -100;
+}
+.orange-container {
+    width: 85rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-column-gap: 3rem;
+    justify-content: space-around;
+    align-items: center;
+}
+.text-items {
+    width: 20rem;
+    margin: 0 auto;
+}
+.text-items h2 {
+    font-size: 2rem;
+    font-family: 'Abril Fatface', cursive;
+}
+.text-items h3 {
+    font-size: 1.5rem;
+    color: black;
+}
+.text-items p {
+    line-height: 200%;
+}
+.text-items button {
+    outline: none;
+    border: 0;
+    background-color: #fdbc2c;
+    padding: 1rem 2rem;
+    width: 15rem;
+    font-weight: bold;
+}

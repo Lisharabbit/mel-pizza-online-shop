@@ -5,165 +5,47 @@
     <title>Pizza Ordering System</title>
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Charmonman&display=swap" rel="stylesheet">
-
-
-    <style>
-        html {
-            font-size: 16px;
-        }
-
-        body {
-            margin: 0;
-        }
-        
-        .container {
-            width: 80rem;
-            margin: 0 auto;
-        }
-
-        
-
-        .primary-font {
-            font-family: 'Abril Fatface', cursive;
-            font-weight: 600;
-            color: gold;
-        }
-        .hot-font {
-            font-family: 'Charmonman', cursive;
-        }
-        /*
-        .banner {
-            height: 80vh;
-            background: black;
-            color: white;
-            text-align: center;
-            position: relative;
-        }
-        */
-
-        /* .banner-content {
-            position: absolute;
-            transform: translateY(-50%) translateX(-50%); 
-            transform: translate(-50%, -50%);
-            https://stackoverflow.com/questions/40530101/why-is-translatey-50-needed-to-center-an-element-which-is-at-top-50 
-            left: 50%;
-            top: 50%;
-        }
-         */
-         /* 居中还是要想到flex or grid */
-        .banner {
-            height: 80vh;
-            background: black;
-            color: white;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;    
-            background-image: url('./assets/banner-background.png');
-            background-size: cover;
-            background-position: 50% 50%;
-            background-repeat: no-repeat;      
-        }
-
-        .banner-content {
-            width: 600px;
-
-        }
-
-        .banner-content > h1 {
-            margin-top: 0;
-            margin-bottom: 16px;
-            color: white;
-        }
-        .banner-content > h2 {
-            margin-top: 16px;
-            margin-bottom: 0;
-            font-size: 32px;
-        }
-        .banner-content > button {
-            margin-top: 16px;
-            margin-bottom: 0;
-            border: 1px solid gold;
-            outline: 0;
-            background: transparent;
-            color: gold;
-            font-size: 16px;
-            padding: 12px 18px;
-        }
-        .features {
-            background: url('./assets/background.jpg');
-            padding: 5rem 0;
-            color: white;
-            display: block;
-            text-align: center;
-
-        }
-        .features  h2 {
-            font-size: 2.5rem;
-            /* rem = 2 x html's font-size */
-        }
-        .feature-items {
-            display: grid;
-            grid-template-columns: repeat(3,1fr);
-            grid-column-gap: 3rem;
-            text-align: left;
-        }
- 
-        .feature-items h3 {
-            font-size: 2rem;
-        }
-
-        .news {
-            background: url('./assets/background.jpg');
-            padding: 5rem 0;
-            color: white;
-        }
-        .news h2 {
-            font-size: 2.5rem;
-            text-align: center; 
-            margin: 0;
-        }
-        .news h3 {
-            font-size: 2rem;
-        }
-        .news h4 {
-            color: red;
-            font-size: 1.5rem;
-        }
-        .news-items{
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-column-gap: 3rem;
-        }
-        .news-items button {
-            outline: none;
-            border: 0;
-            background-color: #fdbc2c;
-            padding: 1rem 2rem;
-        }
-        .news-items > div {
-            display: grid;
-            grid-template-rows: auto auto 10rem 1fr auto;
-            grid-row-gap: 3rem;
-        }
-        .news-items > div > h3,
-        .news-items > div > h4,
-        .news-items > div > p {
-            margin: 0;
-
-        }
-
-
-    </style>
+    <link rel="stylesheet" href="./index.css">
 </head>
 <body>
     <div class="banner">
         <div class="banner-content">
-
             <h1 class="hot-font">Get it while it's hot</h1>
             <h2 class="primary-font">We create custom, personal pizzas with quality ingredients in only five minutes.</h2>
             <button>ORDER ONLINE</button>
         </div>
+    </div>
+    <div class="black-tile">
+        <div>
+            <img src="assets/tile.png" alt="tile">
+        </div>
+        <div>
+            <img src="assets/Margherita.png" alt="Margherita">
+        </div>
+        <div>
+            <img src="assets/Cart.png" alt="shoppingCart">
+        </div>
+    </div>
+    
+    <div class="banner-image">
+        <div class="orange-container">
+            <div>
+                <img src="./assets/Previous.png" alt="tile"> 
+            </div>
+            <div class="text-items">
+                <h2>Peri-Peri</h2>
+                <h3>$18-$37</h3>
+                <p>Marinated Chicken Breast Fillsts, Shallots, Roasted Capsicum, Caramelised Onions & Bacconcini on a Tomato base, topped with Peri-Peri sauce</p>
+                <button>ORDER NOW</button>
+            </div>
+            <div>
+                    <img src="./assets/blackCircle.png" alt="tile"> 
+            </div>
+            <div>
+                    <img src="./assets/Next.png" alt="tile"> 
+                </div>
+        </div>
+
     </div>
     <div class="features">
         <div class="container">
@@ -173,18 +55,21 @@
             <p>And really. itsn't that what it is all about? </p>
             <div class="feature-items">
                 <div>
+                    <img src="assets/leaf.png" alt="tile">
                     <h3 class="primary-font">We're Careful</h3>
                     <p>The crust is stored in a separate container, on a separate shelf in our fridge. The cheese,
                             marinara sauce and pepperoni are stored in a designated kit, and every pizza is freshly baked on
                             designated parchment paper in our ovens.</p>
                 </div>
                 <div>
+                    <img src="assets/medal.png" alt="tile">                   
                     <h3 class="primary-font">We're Certified</h3>
                     <p>Our cheese-only and cheese-and-pepperoni gluten-free pizzas are prepared using the procedures
                             certified by the Gluten Intolerance Group (GIG), and we take specific caution when making these
                             pizzas.</p>
                 </div>
-                <div>
+                <div>                    
+                    <img src="assets/rocket.png" alt="tile">
                     <h3 class="primary-font">We're Creative</h3>
                     <p>For those simply looking to reduce gluten in their diets, we offer a Create Your Own pizza
                             option. The cheese, pepperoni and marinara come from our gluten-free kit, but all additional
@@ -194,6 +79,35 @@
             </div>
         </div>
     </div>
+    <div class="ingredients">
+        <div class="container">
+            <div>
+                <div>5</div>
+                <div>CRUSTS</div>
+            </div>
+            <div>
+                <div>17</div>
+                <div>SAUCES</div>
+            </div>
+            <div>
+                <div>8</div>
+                <div>CHESSES</div>
+            </div>
+            <div>
+                <div>20</div>
+                <div>VEGGIES</div>
+            </div>
+            <div>
+                <div>11</div>
+                <div>MEATS</div>
+            </div>
+            <div>
+                <div>36</div>
+                <div>TOPPINGS</div>
+            </div>
+        </div>
+    </div>
+
     <div class="news">
         <div class="container">
             <h2 class="primary-font">Latest News & Recipes</h2>
@@ -232,6 +146,12 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="buildPizza">
+        <div class="container">
+            <h2 class="primary-font">Build YOur Own Pizza</h2>
+            <p>dummy text</p>
+        </div>              
     </div>
 </body>
 </html>
