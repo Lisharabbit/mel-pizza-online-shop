@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizza Creator</title>
+    <style>
+        .section {
+            padding: 1rem 2rem;
+        }
+        .details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 1fr;
+        }
+        .form-control{
+            display: grid;
+            grid-gap: 0.5rem;
+
+        }
+        .form-control > label {
+            font-weight: bold;
+
+        }
+        .form-control > input{
+            background: white;
+            border-radius: 2px;
+            border: 1px solid #d7d7e7;
+            font-size: 1.5rem;
+            padding: 10px 15px;
+            outline: none;
+        }
+
+        .toppings {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-gap: 0.5rem;
+        }
+        .topping {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-column-gap: 1rem;
+            align-items: center;
+            background: rgba(0,0,0,0.05);
+        }
+        .topping > .img{
+            padding: 5px;
+            background:#e6e6e6;
+        }
+        .topping img{
+            display: block;
+            width: 35px;
+            height: 35px;
+        }
+        .topping.active {
+            background: #1a98ea;
+            color: white;
+        }
+        
+        .summary {
+            padding: 0;
+            list-style: none;
+        }
+        .summary > li {
+            display: grid;
+            grid-template-columns: 1fr auto;
+        }
+        .summary > li:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+        .summary > .total {
+            text-align: right;
+        }
+        button[type="submit"] {
+            width:100%;
+            background: #98c550;
+            border: none;
+            padding: 10px 15px;
+            text-align: center;
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-family: inherit;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="section">
+        <h2>Enter Your Details</h2>
+        <div class="details">
+                <div class="form-control">
+                    <label>Name</label>
+                    <input type="text" placeholder="John Smith">
+                </div>
+                <div class="form-control">
+                    <label>Email</label>
+                    <input type="text" placeholder="Enter your email">
+                </div>
+                <div class="form-control">
+                    <label>Confirm</label>
+                    <input type="text" placeholder="Confirm your email">
+                </div>
+                <div class="form-control">
+                    <label>Address</label>
+                    <input type="text" placeholder="44 pizza street">
+                </div>
+                <div class="form-control">
+                    <label>Postcode</label>
+                    <input type="text" placeholder="Enter your Postcode">
+                </div>
+                <div class="form-control">
+                    <label>Contact Number</label>
+                    <input type="text" placeholder="0123 23435 33">
+                </div>           
+        </div>
+    </div>
+    <div class="section">
+        <h2>Pick Your Topping</h2>
+        <div class="toppings">
+            <div class="topping">
+                <div class="img">
+                    <img src="anchovy.svg" alt="anchovy">
+                </div>
+                <div>
+                    <span>Anchovy</span>
+                </div>
+            </div>
+            <div class="topping">
+                <div class="img">
+                    <img src="bacon.svg" alt="bacon">
+                </div>
+                <div>
+                    <span>Bacon</span>
+                </div>
+            </div>
+            <div class="topping">
+                <div class="img">
+                    <img src="brasil.svg" alt="brasil">
+                </div>
+                <div>
+                    <span>Brasil</span>
+                </div>
+            </div>
+            <div class="topping">
+                <div class="img">
+                    <img src="chili.svg" alt="Chili">
+                </div>
+                <div>
+                    <span>Chili</span>
+                </div>
+            </div>
+            <div class="topping">
+                <div class="img">
+                    <img src="mozzarella.svg" alt="Mozzarella">
+                </div>
+                <div>
+                    <span>Mozzarella</span>
+                </div>
+            </div>
+            <div class="topping">
+                <div class="img">
+                    <img src="mushroom.svg" alt="Mushroom">
+                </div>
+                <div>
+                    <span>Mushroom</span>
+                </div>
+            </div>
+            <div class="topping">
+                <div class="img">
+                    <img src="olive.svg" alt="Olive">
+                </div>
+                <div>
+                    <span>Olive</span>
+                </div>
+            </div>
+            <div class="topping">
+                <div class="img">
+                    <img src="onion.svg" alt="Onion">
+                </div>
+                <div>
+                    <span>Onion</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h2>Order Summary</h2>
+        <ul class="summary">
+            <li>
+                <span>Pizza</span>
+                <span>$9.99</span>
+            </li>
+            <li>
+                <span>Anchovy</span>
+                <span>$0.69</span>
+            </li>
+            <hr>
+            <div class="total">
+                Total:$10.58
+            </div>
+        </ul>
+    </div>
+    <div>
+        <button type="submit" class="">Place Order</button>
+    </div>
+
+    
+</body>
+</html>
