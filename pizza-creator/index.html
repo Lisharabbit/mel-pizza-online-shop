@@ -2,21 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pizza Creator</title>
     <style>
+        body{
+            margin: 0;
+            font-family: sans-serif;
+        }
         .section {
             padding: 1rem 2rem;
         }
         .details {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            grid-gap: 1fr;
+            grid-gap: 1rem;
         }
         .form-control{
             display: grid;
             grid-gap: 0.5rem;
-
-        }
+            color: rgba(0,0,0,0.85);
+            font-size: 0.875rem;
+            }
         .form-control > label {
             font-weight: bold;
 
@@ -33,7 +40,7 @@
         .toppings {
             display: grid;
             grid-template-columns: repeat(4,1fr);
-            grid-gap: 0.5rem;
+            grid-gap: 1rem 0.5rem;
         }
         .topping {
             display: grid;
@@ -41,10 +48,12 @@
             grid-column-gap: 1rem;
             align-items: center;
             background: rgba(0,0,0,0.05);
+            cursor: pointer;
+
         }
         .topping > .img{
             padding: 5px;
-            background:#e6e6e6;
+            background:hsl(0, 0%, 90%);
         }
         .topping img{
             display: block;
@@ -67,7 +76,7 @@
         .summary > li:not(:last-child) {
             margin-bottom: 0.5rem;
         }
-        .summary > .total {
+        .total {
             text-align: right;
         }
         button[type="submit"] {
@@ -85,6 +94,106 @@
         }
 
     </style>
+    <script>
+        // function onInput(input, index){
+        //     const {name, value} = input;
+        //     console.log(`${name}: ${value} [${index}]`);
+        // }
+
+        // function onSubmitButtonClick() {
+            // alert('Button has been clicked!')
+            // let nameInput = document.querySelector('input.name');
+            // alert(nameInput.value);
+            // let emailInput = document.querySelector('input.email');
+            // alert(emailInput.value);
+            // let inputs = document.querySelectorAll('.details input');
+            // inputs.forEach(onInput);
+
+            // inputs.forEach(function(input,index){
+            //     const {name, value} = input;
+            //     console.log(`${name}: ${value} [${index}]`);               
+            // });
+            // 匿名函数
+            // inputs.forEach((input,index) => {
+            //     const {name, value} = input;
+            //     console.log(`${name}: ${value} [${index}]`);               
+            // });
+            // 箭头函数 （能解决作用域的问题）
+            // inputs.forEach(({name, value},index) => console.log(`${name}: ${value} [${index}]`));
+            // 再继续简化，把input用解构函数替代
+
+            // inputs.forEach(({name, value, t = "DEFAULT T"},index) => console.log(`${name}: ${value}  t is ${t} [${index}]`));
+            //  t = "DEFAULT T"  这个是解构赋值，有值的话就显示它本身的值，没有就显示DEFAULT T
+                
+            // inputs.forEach((input,index) => {
+            //     debugger;
+            //     const {name, value} = input;
+            //     console.log(`${name}: ${value} [${index}]`);               
+            // });
+            // debugger 的用法
+
+
+            // callback function
+            // for(let i=0; i<inputs.length;i++){
+            //     let input = inputs[i];
+
+            //     const {name, value} = input;
+            //     // 解构
+            //     // let name = input.name;
+            //     // let value = input.value;
+
+            //     // console.log(name + ' ' + value + ' ');
+            //     console.log(`${name}: ${value}`);
+            // }
+        
+        // function main() {
+        //     let button = document.querySelector('button[type="submit"]');
+        //     button.onclick = onSubmitButtonClick;
+        // }
+        // window.addEventListener('DOMContentLoaded', main);
+
+        function main () {
+            const toppings = document.querySelectorAll('.toppings .topping');
+
+            toppings.forEach((topping) => {
+                topping.onclick = () =>{
+                    // topping.classList.toggle('active');
+                    // classlist 可以用来查找class 并进行增删改查
+                    const summaryList = document.querySelector('ul.summary');
+                    const { name, price} = topping.dataset;
+                    // const { dataset : name, price} = topping;
+                    const total = document.querySelector('.total');
+                    let { total: totalValue } = total.dataset;
+
+                    if (topping.classList.contains('active')) {
+                        topping.classList.remove('active');
+                        summaryList.querySelector(`[data-name="${name}"]`).remove();
+                        totalValue = parseFloat(totalValue) - parseFloat(price);
+
+                    }else {
+                        topping.classList.add('active');
+                        const li = document.createElement('li');
+                        
+                        li.dataset.name = name;
+                        
+                        const nameSpan = document.createElement('span');
+                        nameSpan.innerText = name;
+                        const priceSpan = document.createElement('span');
+                        priceSpan.innerText = `$${price}`;
+
+                        li.append(nameSpan, priceSpan);
+                        summaryList.append(li);
+                        
+                        totalValue = parseFloat(totalValue) + parseFloat(price);
+                    }
+                    total.dataset.total = totalValue;
+                    total.innerText = `Total: $${totalValue}`;
+                }
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', main);
+    </script>
 </head>
 <body>
     <div class="section">
@@ -92,34 +201,34 @@
         <div class="details">
                 <div class="form-control">
                     <label>Name</label>
-                    <input type="text" placeholder="John Smith">
+                    <input type="text" placeholder="John Smith" name="name" id="myId">
                 </div>
                 <div class="form-control">
                     <label>Email</label>
-                    <input type="text" placeholder="Enter your email">
+                    <input type="text" placeholder="Enter your email" name="email">
                 </div>
                 <div class="form-control">
                     <label>Confirm</label>
-                    <input type="text" placeholder="Confirm your email">
+                    <input type="text" placeholder="Confirm your email" name="confirmEmail">
                 </div>
                 <div class="form-control">
                     <label>Address</label>
-                    <input type="text" placeholder="44 pizza street">
+                    <input type="text" placeholder="44 pizza street" name="address">
                 </div>
                 <div class="form-control">
                     <label>Postcode</label>
-                    <input type="text" placeholder="Enter your Postcode">
+                    <input type="text" placeholder="Enter your Postcode" name="postcode"> 
                 </div>
                 <div class="form-control">
                     <label>Contact Number</label>
-                    <input type="text" placeholder="0123 23435 33">
+                    <input type="text" placeholder="0123 23435 33" name="contactNumber">
                 </div>           
         </div>
     </div>
     <div class="section">
         <h2>Pick Your Topping</h2>
         <div class="toppings">
-            <div class="topping">
+            <div class="topping" data-name="Anchovy" data-price="0.69">
                 <div class="img">
                     <img src="anchovy.svg" alt="anchovy">
                 </div>
@@ -127,7 +236,7 @@
                     <span>Anchovy</span>
                 </div>
             </div>
-            <div class="topping">
+            <div class="topping" data-name="Bacon" data-price="0.69">
                 <div class="img">
                     <img src="bacon.svg" alt="bacon">
                 </div>
@@ -135,15 +244,15 @@
                     <span>Bacon</span>
                 </div>
             </div>
-            <div class="topping">
+            <div class="topping" data-name="Basil" data-price="0.69">
                 <div class="img">
-                    <img src="brasil.svg" alt="brasil">
+                    <img src="brasil.svg" alt="basil">
                 </div>
                 <div>
-                    <span>Brasil</span>
+                    <span>Basil</span>
                 </div>
             </div>
-            <div class="topping">
+            <div class="topping" data-name="Chili" data-price="0.69">
                 <div class="img">
                     <img src="chili.svg" alt="Chili">
                 </div>
@@ -151,7 +260,7 @@
                     <span>Chili</span>
                 </div>
             </div>
-            <div class="topping">
+            <div class="topping" data-name="Mozzarella" data-price="0.69">
                 <div class="img">
                     <img src="mozzarella.svg" alt="Mozzarella">
                 </div>
@@ -159,7 +268,7 @@
                     <span>Mozzarella</span>
                 </div>
             </div>
-            <div class="topping">
+            <div class="topping" data-name="Mushroom" data-price="0.69">
                 <div class="img">
                     <img src="mushroom.svg" alt="Mushroom">
                 </div>
@@ -167,7 +276,7 @@
                     <span>Mushroom</span>
                 </div>
             </div>
-            <div class="topping">
+            <div class="topping" data-name="Olive" data-price="0.69">
                 <div class="img">
                     <img src="olive.svg" alt="Olive">
                 </div>
@@ -175,7 +284,7 @@
                     <span>Olive</span>
                 </div>
             </div>
-            <div class="topping">
+            <div class="topping" data-name="" data-price="0.69">
                 <div class="img">
                     <img src="onion.svg" alt="Onion">
                 </div>
@@ -192,15 +301,11 @@
                 <span>Pizza</span>
                 <span>$9.99</span>
             </li>
-            <li>
-                <span>Anchovy</span>
-                <span>$0.69</span>
-            </li>
-            <hr>
-            <div class="total">
-                Total:$10.58
-            </div>
         </ul>
+        <hr>
+        <div class="total" data-total="9.99">
+            Total:$9.99
+        </div>
     </div>
     <div>
         <button type="submit" class="">Place Order</button>
