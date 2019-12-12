@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+
+<!--  add will increase amount by 1
+      minus will decrease amount by 1
+      if amount is less than 0 do nothing
+    <!DOCTYPE html> -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -71,7 +75,7 @@
         }
         .summary > li {
             display: grid;
-            grid-template-columns: 1fr auto;
+            grid-template-columns: auto auto auto 1fr auto;
         }
         .summary > li:not(:last-child) {
             margin-bottom: 0.5rem;
@@ -151,7 +155,12 @@
         //     button.onclick = onSubmitButtonClick;
         // }
         // window.addEventListener('DOMContentLoaded', main);
-
+        
+        function updatePriceSpanByNewAmount(priceSpan, price, newAmount){
+            const newPirce = parseFloat(price * newAmount);
+            priceSpan.innerText = `$ ${newPirce.toFixed(2)}`;
+        }
+        
         function main () {
             const toppings = document.querySelectorAll('.toppings .topping');
 
@@ -173,21 +182,87 @@
                     }else {
                         topping.classList.add('active');
                         const li = document.createElement('li');
+                        const addButton = document.createElement('button');
+                        const minusButton = document.createElement('button');
+                        addButton.innerText = '+';
+                        addButton.onclick= () => {
+                            // console.log('ADDED');
+                            // li
+                            const newAmount = parseFloat(li.dataset.amount) + 1;
+                            li.dataset.amount = parseFloat(newAmount);
+                            li.querySelector('.amount');
+                            amountSpan.innerText = `* ${newAmount}`;
+
+                          
+                            updatePriceSpanByNewAmount(li.querySelector('.price'), price, newAmount)
+                            
+                            const { total: totalValue } = total.dataset;
+                            const newTotalValue = parseFloat(totalValue) + parseFloat(price);
+                            total.innerText =  `$ ${newTotalValue.toFixed(2)}`;
+                            total.dataset.total = newTotalValue;
+
+
+                            // dataset increase by 1
+                            // update amount
+                            // update price
+                            // update total
+                        }
+
+                        minusButton.innerText = '-';
+                        minusButton.onclick = () => {
+                            // console.log('MINUS');
+                            // li
+                            // dataset decrease by 1
+                            // update amount
+                            // update price
+                            // update total
+                            const newAmount = parseFloat(li.dataset.amount) - 1;
+                            if (newAmount === 0) {
+                                // remove class topping active
+                                // topping.classList.remove('active');
+                                // remove li
+
+                                // update total
+
+                                topping.onclick();
+                                return;
+                                // 和点topping取消是一样的
+                            }
+
+                            li.dataset.amount = parseFloat(newAmount);
+                            li.querySelector('.amount');
+                            amountSpan.innerText = `* ${newAmount}`;
+
+                            updatePriceSpanByNewAmount(li.querySelector('.price'), price, newAmount)
+
+                            const { total: totalValue } = total.dataset;
+                            const newTotalValue = parseFloat(totalValue) - parseFloat(price);
+                            total.innerText =  `$ ${newTotalValue.toFixed(2)}`;
+                            total.dataset.total = newTotalValue;
+
+                        }
                         
                         li.dataset.name = name;
+                        const amount = 1;
+                        li.dataset.amount = amount;
                         
                         const nameSpan = document.createElement('span');
                         nameSpan.innerText = name;
                         const priceSpan = document.createElement('span');
+                        priceSpan.className = 'price';
                         priceSpan.innerText = `$${price}`;
 
-                        li.append(nameSpan, priceSpan);
+                        const amountSpan = document.createElement('span');
+                        amountSpan.className = 'amount';
+                        amountSpan.innerText = `*${amount}`;
+
+                        li.append(addButton, minusButton, nameSpan, amountSpan, priceSpan);
                         summaryList.append(li);
                         
                         totalValue = parseFloat(totalValue) + parseFloat(price);
                     }
                     total.dataset.total = totalValue;
-                    total.innerText = `Total: $${totalValue}`;
+                    total.innerText = `Total: $${totalValue.toFixed(2)}`;
                 }
             });
         }
