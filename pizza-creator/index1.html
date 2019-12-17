@@ -1,0 +1,79 @@
+    <!DOCTYPE html> 
+    <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                <title>Pizza Creator</title>
+                <link rel="stylesheet" href="./styles/app.css">
+                <script src="./javascripts/app.js"></script>
+                <script src="./javascripts/renders/renderToppings.js"></script>
+                <script src="./javascripts/renders/renderSizes.js"></script>
+                <script src="./javascripts/renders/renderSummary.js"></script>
+                <script src="./javascripts/renders/renderTotal.js"></script>
+                <script src="./javascripts/renders/renderConfirmationModal.js"></script>
+
+            </head>
+            <body>
+                <div class="section">
+                    <h2>Enter Your Details</h2>
+                    <div class="details">
+                            <div class="form-control">
+                                <label>Name</label>
+                                <input type="text" placeholder="John Smith" name="name" id="myId">
+                            </div>
+                            <div class="form-control">
+                                <label>Email</label>
+                                <input type="text" placeholder="Enter your email" name="email">
+                            </div>
+                            <div class="form-control">
+                                <label>Confirm</label>
+                                <input type="text" placeholder="Confirm your email" name="confirmEmail">
+                            </div>
+                            <div class="form-control">
+                                <label>Address</label>
+                                <input type="text" placeholder="44 pizza street" name="address">
+                            </div>
+                            <div class="form-control">
+                                <label>Postcode</label>
+                                <input type="text" placeholder="Enter your Postcode" name="postcode"> 
+                            </div>
+                            <div class="form-control">
+                                <label>Contact Number</label>
+                                <input type="text" placeholder="0123 23435 33" name="contactNumber">
+                            </div>           
+                    </div>
+                </div>
+                <div class="section">
+                    <h2>Choose Your Size</h2>
+                    <div class="sizes"></div>
+                </div>
+                <div class="section">
+                    <h2>Pick Your Topping</h2>
+                    <div class="toppings">
+                        <!-- renderToppings() -->
+                    </div>
+                </div>
+                <div class="section">
+                    <h2>Order Summary</h2>
+                    <ul class="summary">
+                        <li>
+                            <span>Pizza</span>
+                            <span></span>
+                            <span>+</span>
+                            <span>-</span>
+                            <span>$9.99</span>
+                        </li>
+                    </ul>
+                    <hr>
+                    <div class="total">
+                        Total:$9.99
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" class="">Place Order</button>
+                    <button type="reset" class="">Clear</button>
+
+                </div>               
+            </body>
+            </html>

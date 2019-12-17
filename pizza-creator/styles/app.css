@@ -1,0 +1,121 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+}
+.section {
+    padding: 1rem 2rem;
+}
+.details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+}
+.form-control{
+    display: grid;
+    grid-gap: 0.5rem;
+    color: rgba(0,0,0,0.85);
+    font-size: 0.875rem;
+    }
+.form-control > label {
+    font-weight: bold;
+
+}
+.form-control > input{
+    background: white;
+    border-radius: 2px;
+    border: 1px solid #d7d7e7;
+    font-size: 1.5rem;
+    padding: 10px 15px;
+    outline: none;
+}
+
+.toppings {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 1rem 0.5rem;
+}
+.topping {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-column-gap: 1rem;
+    align-items: center;
+    background: rgba(0,0,0,0.05);
+    cursor: pointer;
+
+}
+.topping > .img{
+    padding: 5px;
+    background:hsl(0, 0%, 90%);
+}
+.topping img{
+    display: block;
+    width: 35px;
+    height: 35px;
+}
+.topping.active {
+    background: #1a98ea;
+    color: white;
+}
+
+.summary {
+    padding: 0;
+    list-style: none;
+}
+.summary > li {
+    display: grid;
+    grid-template-columns: auto auto auto 1fr auto;
+}
+.summary > li:not(:last-child) {
+    margin-bottom: 0.5rem;
+}
+.total {
+    text-align: right;
+}
+button[type="submit"] {
+    width:100%;
+    background: #98c550;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-family: inherit;
+}
+
+.sizes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.size {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 1rem;
+    align-items: center;
+    cursor: pointer;
+}
+.size > .pizza {
+    border: 8px solid transparent;
+}
+.size:hover > .pizza {
+    border-color: #e6e6e6;
+    border-radius: 50%;
+}
+.size.active >.pizza {
+    border-color: #e6e6e6;
+    border-radius: 50%;
+}
+.size > .pizza.large {
+    height: 5rem;
+}
+.size > .pizza.medium {
+    height: 4rem;
+}
+.size > .pizza.small {
+    height: 3rem;
+}
+.size > span {
+    text-transform:  capitalize;
+}
